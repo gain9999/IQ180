@@ -1,0 +1,123 @@
+#gamebody {
+      background-color: #201D1D;
+      text-align: center;
+      color: white;
+      text-decoration: none;
+      font-family: sans-serif;
+      overflow-x: hidden;
+      height: 90%;
+    }
+     
+
+h1  {
+    text-align: center;
+    }
+
+.gameli  {
+      display: inline;
+    }
+
+p   { 
+    font-size: 20px;
+    }
+
+
+  
+  #cal input[type="button"] {
+    width: 120px;
+    display: block;
+  }
+
+ .number {
+  -moz-box-shadow:inset 0px 1px 0px 0px #bee2f9;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #bee2f9;
+  box-shadow:inset 0px 1px 0px 0px #bee2f9;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #63b8ee), color-stop(1, #468ccf));
+  background:-moz-linear-gradient(top, #63b8ee 5%, #468ccf 100%);
+  background:-webkit-linear-gradient(top, #63b8ee 5%, #468ccf 100%);
+  background:-o-linear-gradient(top, #63b8ee 5%, #468ccf 100%);
+  background:-ms-linear-gradient(top, #63b8ee 5%, #468ccf 100%);
+  background:linear-gradient(to bottom, #63b8ee 5%, #468ccf 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#63b8ee', endColorstr='#468ccf',GradientType=0);
+  background-color:#63b8ee;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #3866a3;
+  display:inline-block;
+  cursor:pointer;
+  color:#14396a;
+  font-family:Trebuchet MS;
+  font-size:28px;
+  font-weight:bold;
+  padding:6px 24px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #7cacde;
+}
+.number:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #468ccf), color-stop(1, #63b8ee));
+  background:-moz-linear-gradient(top, #468ccf 5%, #63b8ee 100%);
+  background:-webkit-linear-gradient(top, #468ccf 5%, #63b8ee 100%);
+  background:-o-linear-gradient(top, #468ccf 5%, #63b8ee 100%);
+  background:-ms-linear-gradient(top, #468ccf 5%, #63b8ee 100%);
+  background:linear-gradient(to bottom, #468ccf 5%, #63b8ee 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#468ccf', endColorstr='#63b8ee',GradientType=0);
+  background-color:#468ccf;
+}
+.number:active {
+  position:relative;
+  top:1px;
+}
+
+
+.myButton {
+  -moz-box-shadow:inset 0px 39px 0px -24px #e67a73;
+  -webkit-box-shadow:inset 0px 39px 0px -24px #e67a73;
+  box-shadow:inset 0px 39px 0px -24px #e67a73;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e4685d), color-stop(1, #eb675e));
+  background:-moz-linear-gradient(top, #e4685d 5%, #eb675e 100%);
+  background:-webkit-linear-gradient(top, #e4685d 5%, #eb675e 100%);
+  background:-o-linear-gradient(top, #e4685d 5%, #eb675e 100%);
+  background:-ms-linear-gradient(top, #e4685d 5%, #eb675e 100%);
+  background:linear-gradient(to bottom, #e4685d 5%, #eb675e 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e4685d', endColorstr='#eb675e',GradientType=0);
+  background-color:#e4685d;
+  -moz-border-radius:16px;
+  -webkit-border-radius:16px;
+  border-radius:16px;
+  border:2px solid #ffffff;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Impact;
+  font-size:28px;
+  font-weight:bold;
+  padding:9px 48px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #b23e35;
+}
+.myButton:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #eb675e), color-stop(1, #e4685d));
+  background:-moz-linear-gradient(top, #eb675e 5%, #e4685d 100%);
+  background:-webkit-linear-gradient(top, #eb675e 5%, #e4685d 100%);
+  background:-o-linear-gradient(top, #eb675e 5%, #e4685d 100%);
+  background:-ms-linear-gradient(top, #eb675e 5%, #e4685d 100%);
+  background:linear-gradient(to bottom, #eb675e 5%, #e4685d 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eb675e', endColorstr='#e4685d',GradientType=0);
+  background-color:#eb675e;
+}
+.myButton:active {
+  position:relative;
+  top:1px;
+}
+
+.css-input { border-color:#F7EFEF; border-style:solid; padding:12px; font-size:24px; border-width:8px; border-radius:15px;  } 
+     .css-input:focus { outline:none; } 
+
+.equal{
+  font-size: 28px;
+  display: inline;
+}
+
+
+
