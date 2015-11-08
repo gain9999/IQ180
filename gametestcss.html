@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <title>IQ180 Game</title>
+   <link rel="stylesheet" href="stylegame.css">
+   <!--<link rel="stylesheet" href="style.css">-->
+  <script src="/jquery-2.1.4.min.js"></script>
+  <script src="/socket.io-1.2.0.js"></script>
+  <!-- <script src="/main.js"></script>-->
+</head>
+<body>
+  <ul class="gamepage" style="display:visible;">
+    <div id="gamebody">
+      <ul class="name">
+              <li id="myname">Alice: </li>
+              <li id="opponentname">Bob: </li>          
+      </ul>
+      <br>
+      <br>
+      <br>
+      <br>
+       <div class="info">
+           <span> This is ... turn</span>
+
+           <span> Time left:  sec</span>
+
+           <span> The result is ...</span>
+         
+       </ul>
+      <br>
+      <br>
+      <br>
+      <ul class="number">
+        <li id="num1">x</li>
+        <li id="num2">x</li>
+        <li id="num3">x</li>
+        <li id="num4">x</li>
+        <li id="num5">x</li>
+      </ul>
+      <br>
+      <br>
+      <br>
+      <ul class="show">
+        <li class="gameli">
+          <form id="answerform">
+          <input type="text" class="css-input" name="solution" id="answer"> 
+          </form>
+        </li>
+        <li class="equal"> = </li> 
+        <li class="gameli"><input type="text" class="css-input" name="result" id="resultShown"></li>
+      </ul>
+      <br>
+      <br>
+      <br>
+      <ul class="cal">
+        <li class="gameli"><a href="#" class="myButton">+</a></li>
+        <li class="gameli"><a href="#" class="myButton">-</a></li>
+        <li class="gameli"><a href="#" class="myButton">x</a></li>
+        <li class="gameli"><a href="#" class="myButton">/</a></li>       
+      </ul>
+    </div> 
+  </ul>
+</body>
+</html>

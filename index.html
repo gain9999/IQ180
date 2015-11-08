@@ -1,35 +1,93 @@
 <!doctype html>
-<html>
-  <head>
-    <title>Socket.IO chat</title>
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
-    </style>
-  </head>
-  <body>
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-    <script>
-      var socket = io();
-      $('form').submit(function(){
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
-        return false;
-      });
-      socket.on('chat message', function(msg){
-        $('#messages').append($('<li>').text(msg));
-      });
-    </script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <title>IQ180 Game</title>
+    <link rel="stylesheet" href="stylegame.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="/jquery-2.1.4.min.js"></script>
+  <script src="/socket.io-1.2.0.js"></script>
+  <script src="/main.js"></script>
+</head>
+<body>
+  <ul class="pages">
+    <li class="chat page">
+      <div class="chatArea">
+        <ul class="messages"></ul>
+      </div>
+      <div class="onlineusers">
+        <h4><center>Online Users</center></h4>
+        <ul class="userlists"></ul>
+        <div id="startbutton">Start</div> 
+      </div>
+      <input class="inputMessage" placeholder="Type here..."/>
+    </li>
+    <li class="login page">
+      <div class="form">
+        <h2 class="gametitle">IQ180 Game</h2>
+        <h3 class="title">Enter your name?</h3>
+        <input class="usernameInput" type="text" maxlength="14" />
+      </div>
+    </li>
+  </ul>
+
+
+  <ul class="gamepage" style="display:none;">
+    <div id="gamebody">
+      <ul class="name">
+          <li id="myname">Alice</li>:<li id="myscore">0</li> 
+          <li id="opponentname">Bob</li>:<li id="opponentscore">0</li>
+      </ul>
+      <br>
+      <br>
+      <br> 
+       <ul id="info">
+        <li>This is</li><li id="turn"></li><li>turn</li>    
+        <li>The result is</li><li id="result">...</li>
+        <li>Time left:</li><li id="timer"></li><li>s</li>
+      </ul>   
+      <br>
+      <br>
+      <br>    
+      <ul id="number">
+        <li><a href="#" class="number" id="num1">x</a></li>
+        <li><a href="#" class="number" id="num2">x</a></li>
+        <li><a href="#" class="number" id="num3">x</a></li>
+        <li><a href="#" class="number" id="num4">x</a></li>
+        <li><a href="#" class="number" id="num5">x</a></li>
+      </ul>
+      <br>
+      <br>
+      <br>
+      <br>
+      <ul id="show">
+        <li>
+            <input type="text" class="css-input" name="solution" id="answer">
+        </li> 
+        <li class="equal"> =  </li> 
+        <li><input type="text" class="css-input" name="result" id="calculatedresult"></li>
+      </ul>  
+      <br>
+      <li id="status"></li>
+      <br>
+      <br>  
+      <ul id="cal">
+        <li><a href="#" class="myButton">+</a></li>
+        <li><a href="#" class="myButton">-</a></li>
+        <li><a href="#" class="myButton">x</a></li>
+        <li><a href="#" class="myButton">/</a></li>
+      </ul> 
+      <br>
+      <br>
+      <br>
+      <br>
+      <ul class="playorexit">
+        <li><a href="#" class="choice1" id="continue">Continue</a></li>
+        <li><a href="#" class="choice2" id="quit">Quit</a></li>
+      </ul>
+    </div>
+  </ul>
+
+</body>
 </html>
