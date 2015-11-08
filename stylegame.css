@@ -5,6 +5,7 @@
       text-decoration: none;
       font-family: sans-serif;
       overflow-x: hidden;
+<<<<<<< HEAD
       height: 96%;
     }
 
@@ -93,6 +94,32 @@
 }
 
 .number {
+=======
+      height: 90%;
+    }
+     
+
+h1  {
+    text-align: center;
+    }
+
+.gameli  {
+      display: inline;
+    }
+
+p   { 
+    font-size: 20px;
+    }
+
+
+  
+  #cal input[type="button"] {
+    width: 120px;
+    display: block;
+  }
+
+ .number {
+>>>>>>> origin/master
   -moz-box-shadow:inset 0px 1px 0px 0px #bee2f9;
   -webkit-box-shadow:inset 0px 1px 0px 0px #bee2f9;
   box-shadow:inset 0px 1px 0px 0px #bee2f9;
@@ -183,6 +210,7 @@
   display: inline;
 }
 
+<<<<<<< HEAD
 .choice1 {
   -moz-box-shadow:inset 0px 1px 0px 0px #71FAB5;
   -webkit-box-shadow:inset 0px 1px 0px 0px #71FAB5;
@@ -265,5 +293,7 @@
   top:1px;
 }
 
+=======
+>>>>>>> origin/master
 
 

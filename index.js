@@ -19,6 +19,7 @@ var usernames = {};
 var readyID = [];
 var opponent = {};
 var numUsers = 0;
+<<<<<<< HEAD
 var continueGame = {};
 
 // send Local IP Adddress to website
@@ -34,6 +35,8 @@ require('dns').lookup(require('os').hostname(), function (err, add, fam) {
   console.log('Updated IP at gogain.xyz: '+add+":"+port);
 })
 
+=======
+>>>>>>> origin/master
 
 io.on('connection', function (socket) {
   var addedUser = false;
@@ -46,7 +49,10 @@ io.on('connection', function (socket) {
       message: data,
       pmuser: pmuser
     });
+<<<<<<< HEAD
     console.log(socket.username+": "+data);
+=======
+>>>>>>> origin/master
   });
 
   // when the client emits 'add user', this listens and executes
@@ -114,7 +120,11 @@ io.on('connection', function (socket) {
           console.log("Socket ID: "+opponent[key]);
       }      
     }
+<<<<<<< HEAD
     console.log(socket.username+" leave the server."); 
+=======
+
+>>>>>>> origin/master
     // remove the username from global usernames list
     if (addedUser) {
       delete usernames[socket.username];
@@ -127,6 +137,10 @@ io.on('connection', function (socket) {
         usernames: usernames
       });
     }
+<<<<<<< HEAD
+=======
+    console.log(socket.username+" leave the server."); 
+>>>>>>> origin/master
   });
 
   // when the client emits 'ready', change state of client to be ready
@@ -144,19 +158,30 @@ io.on('connection', function (socket) {
           opponent[socket.id] = readyID[i].id;
           opponent[readyID[i].id] = socket.id;
           readyID[i].emit('redirectToGame',{
+<<<<<<< HEAD
             opponentname: socket.username,
             value: Math.random()
           }); // socket
           socket.emit('redirectToGame',{
             opponentname: readyID[i].username,
             value: Math.random()
+=======
+            opponentname: socket.username
+          }); // socket
+          socket.emit('redirectToGame',{
+            opponentname: readyID[i].username
+>>>>>>> origin/master
           }); // socket
           socket.broadcast.emit('new message', {
             username: socket.username,
             message: 'start the game with '+readyID[i].username,
             pmuser: null
           });
+<<<<<<< HEAD
           console.log("--> "+socket.username+" start game with "+readyID[i].username);     
+=======
+          console.log("  "+socket.username+" start game with "+readyID[i].username);     
+>>>>>>> origin/master
           break;
         }
       }     
@@ -171,6 +196,7 @@ io.on('connection', function (socket) {
           console.log("  Socket ID: "+opponent[key]);
     }         
   });  
+<<<<<<< HEAD
   socket.on('sendToPeer', function (mode,value) {
       for (var i = 0; i < readyID.length; i++) {
         if(readyID[i].id == opponent[socket.id]) {
@@ -179,10 +205,20 @@ io.on('connection', function (socket) {
             value: value
           });
           console.log(socket.username+"->"+readyID[i].username+": "+mode+" | "+value);     
+=======
+  socket.on('sendToPeer', function (data) {
+      for (var i = 0; i < readyID.length; i++) {
+        if(readyID[i].id == opponent[socket.id]) {
+          readyID[i].emit('sendToPeerGame', {
+            value: data
+          });
+          console.log(socket.username+"->"+readyID[i].username+": "+data);     
+>>>>>>> origin/master
           break;
         }
       }  
   });
+<<<<<<< HEAD
   // ------------------------------------------------------------------------
   var randomfirstplayer = 1; // change this to 0 for a) 2nd player start first
   // ------------------------------------------------------------------------
@@ -241,4 +277,6 @@ io.on('connection', function (socket) {
       delete opponent[opponent[socket.id]];
       delete opponent[socket.id];
   }); 
+=======
+>>>>>>> origin/master
 });

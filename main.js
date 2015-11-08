@@ -341,6 +341,7 @@ $(function() {
   socket.on('redirectToGame', function (data) {
     $('.pages').css( "display", "none" );
     $chatPage.fadeOut();
+<<<<<<< HEAD
     if(data.continuegame != 1){
       myscore = 0;
       opponentscore = 0;
@@ -351,12 +352,18 @@ $(function() {
     $('#answer').val('');
     $('#result').text('...');
     $('#timer').text('60');
+=======
+>>>>>>> origin/master
     $('.gamepage').css( "display", "inline" );
     $('.gamepage').fadeIn();
     $('#myname').text(username);
     $('#opponentname').text(data.opponentname);
+<<<<<<< HEAD
     opponentname = data.opponentname;
     startGame(null,data.value);// start game here
+=======
+    startGame();// start game here
+>>>>>>> origin/master
   });    
   socket.on('redirectToChat', function () {
     $('.gamepage').css( "display", "none" );
@@ -367,6 +374,7 @@ $(function() {
     $( '#startbutton' ).text("start");      
     startbuttonclicked = 0;    
   });      
+<<<<<<< HEAD
   function sendToPeer(mode,value) { // send to opponent
      socket.emit('sendToPeer',mode, value);
   }  
@@ -688,4 +696,15 @@ $(function() {
     generateDigit = [];
     socket.emit('quitgame');
   });
+=======
+  function sendToPeer(data) { // send to opponent
+     socket.emit('sendToPeer', data);
+  }  
+  socket.on('sendToPeerGame', function (data) { // recieve from server
+    alert(data.value);
+  });  
+  function startGame(){
+    //sendToPeer("hello");
+  }
+>>>>>>> origin/master
 });

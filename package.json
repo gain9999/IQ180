@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "IQ180",
+=======
+  "name": "IQ180 GAME",
+>>>>>>> origin/master
   "version": "0.0.1",
   "description": "my first socket.io app",
   "dependencies": {
