@@ -1,0 +1,31 @@
+<center><br>
+<h1 style="font-size: 150px;"> IQ180 </h1>
+	<form onsubmit="return redirectIP();" name="ipaddr">
+	<br><br><br><br>
+  IP Address: <input type="input" name="ip" id="ip">
+  <input type="submit" value="Go!">
+  <script>
+	function validateIpAndPort(input) {
+	    var parts = input.split(":");
+	    var ip = parts[0].split(".");
+	    var port = parts[1];
+	    return validateNum(port, 1, 65535) &&
+	        ip.length == 4 &&
+	        ip.every(function (segment) {
+	            return validateNum(segment, 0, 255);
+	        });
+	}
+	function validateNum(input, min, max) {
+	    var num = +input;
+	    return num >= min && num <= max && input === num.toString();
+	}
+  	function redirectIP(){
+  		var ip = document.getElementById("ip").value;
+  		if(validateIpAndPort(ip)) window.location = "http://"+ip;
+  		else alert("Invalid IP and port !")
+  		return false;
+  	}
+
+</script>
+</form>
+</center>

@@ -271,6 +271,8 @@ $(function() {
         sendMessage();
         socket.emit('stop typing');
         typing = false;
+        var audiob = new Audio('blink.mp3');
+        audiob.play();
       } else {
         setUsername();
       }
@@ -357,6 +359,7 @@ $(function() {
     $('#opponentname').text(data.opponentname);
     opponentname = data.opponentname;
     startGame(null,data.value);// start game here
+    audio.play();
   });    
   socket.on('redirectToChat', function () {
     $('.gamepage').css( "display", "none" );
@@ -412,35 +415,37 @@ $(function() {
   function randomIntFromInterval(one,two,three,four,five)
   {
       var ff = 0.1;
+      var o1,o2,o3,o4;
       while(ff%1 != 0){//not integer)
         var op1 = Math.floor(Math.random() * 4) + 1;
         var ot = 0;
-        if (op1==1) {ot=one+two;}
-        else if (op1==2){ot=one-two;}
-        else if (op1==3){ot=one*two;}
-        else {ot=one/two;}
+        if (op1==1) {ot=one+two; o1="+";}
+        else if (op1==2){ot=one-two; o1="-";}
+        else if (op1==3){ot=one*two; o1="*";}
+        else {ot=one/two; o1="/";}
         //console.log(ot);
         var op2 = Math.floor(Math.random() * 4) + 1;
         var tt = 0;
-        if (op2==1) {tt=ot+three;}
-        else if (op2==2){tt=ot-three;}
-        else if (op2==3){tt=ot*three;}
-        else {tt=ot/three;}
+        if (op2==1) {tt=ot+three; o2="+";}
+        else if (op2==2){tt=ot-three; o2="-";}
+        else if (op2==3){tt=ot*three; o2="*";}
+        else {tt=ot/three; o2="/";}
         //console.log(tt);
         var op3 = Math.floor(Math.random() * 4) + 1;
         var tf = 0;
-        if (op3==1) {tf=tt+four;}
-        else if (op3==2){tf=tt-four;}
-        else if (op3==3){tf=tt*four;}
-        else {tf=tt/four;}
+        if (op3==1) {tf=tt+four; o3="+";}
+        else if (op3==2){tf=tt-four; o3="-";}
+        else if (op3==3){tf=tt*four; o3="*";}
+        else {tf=tt/four; o3="/";}
         //console.log(tf);
         var op4 = Math.floor(Math.random() * 4) + 1;
         
-        if (op3==1) {ff=tf+four;}
-        else if (op3==2){ff=tf-four;}
-        else if (op3==3){ff=tf*four;}
-        else {ff=tf/four;}
+        if (op4==1) {ff=tf+four; o4="+";}
+        else if (op4==2){ff=tf-four; o4="-";}
+        else if (op4==3){ff=tf*four; o4="*";}
+        else {ff=tf/four; o4="/";}
         //console.log(ff);
+        console.log(one+o1+two+o2+three+o3+four+o4+five);
       }
       return ff;
   }    
@@ -454,6 +459,8 @@ $(function() {
   var opponenttimerfunc;
   var opponentname;
   var myscore = 0, opponentscore = 0, myturn = 0;
+  var audio = new Audio('draw.mp3');
+
   function startGame(mode,value){
     if(mode == null) { // initailize game page
       randomStart = value 
@@ -529,6 +536,12 @@ $(function() {
       enemytime = value;
       checkWinner();     
     }
+    else if(mode == "player2answering"){
+      $('#answer').val(value);
+    }
+    else if(mode == "player2resulting"){
+      $('#calculatedresult').val(value);
+    }
   }
   $('#answer').keypress(function (e) { // submit answer
     if (e.which == 13 && myturn == 1) {
@@ -568,6 +581,7 @@ $(function() {
           }
         } else $('#status').text("Incorrect !");
       } else $('#status').text("You have to use all the digits !");
+      if(player == 2) sendToPeer('player2resulting',check(ansinput));
       return false;   
     }
   });
@@ -576,13 +590,25 @@ $(function() {
             alert("Your time "+(60-mytime).toFixed(1)+"s\n"
             +"Enemy's time "+(60-enemytime).toFixed(1)+"s\n"
             +"+++ Draw +++");
+            
           }
           else if(mytime > enemytime){
             alert("Your time "+(60-mytime).toFixed(1)+"s\n"
             +"Enemy's time "+(60-enemytime).toFixed(1)+"s\n"
             +"+++ You won +++");
             myscore++;
-            $('#myscore').text(myscore);            
+            $('#myscore').text(myscore);
+            // firework     
+            $('.gamepage').hide(); 
+             document.body.appendChild(canvas);
+            canvas.width = SCREEN_WIDTH;
+            canvas.height = SCREEN_HEIGHT;
+            setInterval(launch, 800);
+            setInterval(loop, 1000 / 50);       
+            setTimeout(function () {
+              $('.gamepage').show(); 
+              document.body.removeChild(canvas);  
+            }, 5000); 
           }
           else {
             alert("Your time "+(60-mytime).toFixed(1)+"s\n"
@@ -664,6 +690,7 @@ $(function() {
         $(".numberclicked").toggleClass( "number numberclicked" );
       }      
       anslength = ansinput.length;
+      if(player == 2) sendToPeer('player2answering',ansinput);
   });    
   $('#answer').bind("paste",function(e) {
     e.preventDefault();
